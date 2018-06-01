@@ -1,0 +1,155 @@
+/*合同签署*/
+.container{
+    position:relative;
+    width:100%;
+    min-height:100%;
+}
+
+.picture-list{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 70px;
+}
+.picture-list ul{
+
+}
+.picture-list ul li{
+    width: 100%;
+    height: 100%;
+}
+
+.picture-list ul li img{
+    width: 100%;
+    height: 100%;
+}
+.sign-operation{
+    position:fixed;
+    bottom: 5px;
+    right: 5px;
+
+}
+
+.sign-operation div a{
+    display: inline-block;
+    width: 40px;
+    height:40px;
+    font-size: 10px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+.quit-sign a{
+    border: 1px solid #036eb8;
+    color: #036eb8;
+
+}
+.sign-here a{
+    background: #036eb8;
+    color: #fff;
+    border-radius: 50%;
+}
+.quit-sign {
+    margin-top: 5px;
+}
+.sign-here{
+
+}
+
+.refuse-reason-tips{font-size: 14px;line-height: 30px;padding-left: 15px;}
+
+.sure{background-color: #036eb8;color: #fff;float: right;}
+.dismiss{border:1px solid #ddd;color: #ddd;float:left;}
+textarea.refuse-reason{width: 80%;height: 50px;border: 1px solid #ddd;border-radius: 5px;margin-left:10%;
+    padding: 5px;margin-top: 10px;margin-bottom: 10px;}
+
+
+/*签署完成*/
+.sign-finished{background: url("../images/sign-finished.png") no-repeat;margin: 0 auto;}
+.sign-finished-tips{width: 140px;font-size: 14px;color: #666;text-align: center;}
+
+.know-that{margin-top: 160px;background: #349ce3;font-size: 14px;line-height: 30px;
+    text-align: center;margin-left: auto;display: inline-block;color: #fff!important;width: 200px;border-radius: 4px;}
+.verification-title{font-size: 14px;width: 100%;padding-left: 20px;margin-bottom: 20px;}
+.verification{margin-left: 20px;}
+.telephone{
+    float: left;
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: 12px;
+}
+.verification-code{
+    float: left;
+    display: inline-block;
+    width: 95px;
+    background-color: #999;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    margin-left: 5px;
+}
+
+/*签署成功*/
+.sign-success{
+    width: 100%;
+    height: 50%;
+}
+.success-img{
+    margin: 0 auto;
+    width: 300px;
+    height:300px;
+    background:url("../images/sign-success.png") no-repeat;
+}
+.sign-success-info{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+.sign-success-info>p{
+    color:#349ce3;
+
+}
+.red{
+    color: red;
+}
+
+.tenant{
+    width: 100%;
+}
+.background{
+    width: 100%;
+    height:10px;
+    background: #f0f0f0;
+}
+.tenant-info{
+
+}
+.tenant-info ul li{
+
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.tenant-info ul li a{
+    display: inline-block;
+    width: 150px;
+    color: #666;
+    text-align: left;
+}
+.tenant-info ul li span{
+    display: inline-block;
+    width: 180px;
+    color: #666;
+    opacity: 0.8;
+    text-align: right;
+
+}

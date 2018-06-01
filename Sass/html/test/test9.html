@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <meta name="description" content="">
+    <title>屏幕旋转</title>
+
+
+    <style>
+        img{ border:solid 1px #ddd;}
+    </style></head>
+
+
+<body>
+<div align="center">
+    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3429593144,4057793362&fm=27&gp=0.jpg" width="300">
+    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2248652485,995513227&fm=27&gp=0.jpg" width="300">
+</div>
+<div id="imgBox" align="center">
+    <input type="button" value="一键合成" onclick="hecheng()">
+</div>
+<script>
+    window.addEventListener("orientationchange", function() {
+
+        var deg=window.orientation;
+       if(deg=='0'){
+           alert("0");
+       }if(deg=='90'){
+           alert("90");
+        }
+    }, false);
+</script>
+</body></html>

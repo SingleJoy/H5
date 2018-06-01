@@ -1,0 +1,218 @@
+<html lang="zh"><head>
+    <meta charset="UTF-8">
+    <title>手写签署面板</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <style type="text/css">
+        * {
+            /*初始化样式*/
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            /*用于 获取 屏幕的可视宽高*/
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            /*让 body 初始 width 和 height 就 等于 页面可视区域的 宽高*/
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            /*用于 测试的 样式*/
+            background-color: #fff;
+
+            letter-spacing: 4px;
+            font-size: 28px;
+            /*文字居中*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media screen and (orientation:portrait) {
+            /*竖屏样式*/
+            body {
+                transform-origin: 0 0;
+                transform: rotateZ(90deg) translateY(-100%);
+            }
+        }
+        .hand-panel{
+
+            width: 100%;
+            height:100%;
+        }
+
+        .js-signature{
+            margin:50px 20px 20px 20px;
+            box-sizing: border-box;
+
+            border: 1px dashed rgb(52, 156, 227);
+            background: rgb(226, 239, 253)
+        }
+
+        .hand-operation{
+            position: absolute;
+            right:30px;
+            bottom: 30px;
+        }
+        .rewrite,.submit{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 50%;
+            padding: 0;
+            border:0;
+            background-color:transparent;
+        }
+        .rewrite{
+            position: absolute;
+            border: 1px solid #349ce3;
+            color: #349ce3;
+            right:0;
+            bottom: 50px;
+        }
+        .submit{
+            background: #349ce3;
+            color: #fff;
+        }
+
+        .panel-tips p{
+            font-family: "Adobe 仿宋 Std R";
+            font-size:16px;
+
+        }
+        .hand-write-title{
+            width:100%;
+            position:absolute;
+            height: 20px;
+            left: 20px;
+            top:10px;
+        }
+
+        .header-title p{
+            position: absolute;
+            width: 180px;
+            font-size: 16px;
+            line-height:20px;
+            color: #666;
+            left: 50%;
+            margin-left: -90px;
+            margin-top: -20px;
+        }
+        .sign-header a{
+
+            width: 50px;
+            line-height: 20px;
+            color: #349ce3;
+            font-size: 14px;
+        }
+
+    </style>
+    <script src="jquery/js/jquery-1.11.0.min.js"></script>
+    <script>
+
+        window.addEventListener("orientationchange", function() {
+            var h=document.documentElement.clientHeight;
+            var w=document.documentElement.clientWidth;
+            alert(window.orientation);
+
+            if(window.orientation=='0'){
+
+                var panelW=w-70;
+                var panelH=h-40;
+                $('.js-signature').css('width',panelH+'px');
+                $('.js-signature').css('height',panelW+'px');
+
+            }else if(window.orientation=='90'){
+
+                var panelW=w-70;
+                var panelH=h-40;
+                $('.js-signature').css('width',panelH+'px');
+                $('.js-signature').css('height',panelW+'px');
+            }else{
+
+                var panelW=w-70;
+                var panelH=h-40;
+                $('.js-signature').css('width',panelH+'px');
+                $('.js-signature').css('height',panelW+'px');
+            }
+
+        }, false);
+
+        $(function () {
+
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+<!--返回-->
+<div class="hand-write-title">
+
+    <div class="sign-header">
+        <a href="signature-sign.html"><&nbsp;返回</a>
+    </div>
+    <div class="header-title">
+        <p>请在签名面板内签名</p>
+    </div>
+</div>
+
+<div class="hand-panel panel-show">
+
+    <!--面板位置-->
+    <div class="js-signature"  >
+        <div id="signature"></div>
+    </div>
+
+</div>
+
+<div class="hand-operation  panel-show">
+    <button id="clearBtn" class="rewrite" >重写</button>&nbsp;
+    <button id="saveBtn" class="submit" >提交</button>
+</div>
+
+<script>
+    var hiddenProperty = 'hidden' in document ? 'hidden' :
+        'webkitHidden' in document ? 'webkitHidden' :
+            'mozHidden' in document ? 'mozHidden' :
+                null;
+    var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+    var onVisibilityChange = function(){
+        if (document[hiddenProperty]) {
+            console.log('页面非激活');
+        }else{
+            console.log('页面激活')
+        }
+    }
+    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+</script>
+
+<script>
+    (function () {
+        function resize() {
+            var body = document.getElementsByTagName('body')[0];
+            var html = document.getElementsByTagName('html')[0];
+            var width = html.clientWidth;
+            var height =  html.clientHeight;
+            var max = width > height ? width : height;
+            var min = width > height ? height : width;
+            body.style.width = max + "px";
+            body.style.height = min + "px";
+        }
+        resize();
+        window.addEventListener("resize", resize)
+    })();
+</script>
+
+</body>
+</html>

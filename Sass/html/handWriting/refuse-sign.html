@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手写签署</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="../../css/signature-sign.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+
+    <script src="../../js/jquery-1.11.3.min.js"></script>
+
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/zui/1.8.1/css/zui.min.css">-->
+
+    <!--&lt;!&ndash; ZUI Javascript 依赖 jQuery &ndash;&gt;-->
+    <!--<script src="//cdn.bootcss.com/zui/1.8.1/lib/jquery/jquery.js"></script>-->
+    <!--&lt;!&ndash; ZUI 标准版压缩后的 JavaScript 文件 &ndash;&gt;-->
+    <!--<script src="//cdn.bootcss.com/zui/1.8.1/js/zui.min.js"></script>-->
+    <script src="../../js/modal.js"></script>
+    <link rel="stylesheet" href="../../css/modal.css">
+
+
+</head>
+<body>
+<div class="container">
+
+    <div class="picture-list">
+        <ul>
+            <li>
+                <img src="../../images/timg.jpg" class="list-img">
+            </li>
+            <li>
+                <img src="../../images/timg.jpg" class="list-img">
+            </li>
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+
+<div class="modal" style="display: block;background:transparent;">
+    <div class="modal-box" style="width: 100%;height: 100px;margin:50% 0;background: rgba(0, 0, 0, 0.4);">
+
+        <div class="modal-body">
+            <div style="padding: 20px;color: #fff;">
+                <p>拒签原因：</p>
+                <div style="padding-left:65px;">拒签原因！拒签原因！拒签原因！</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        var h=document.documentElement.clientHeight;
+        var w=document.documentElement.clientWidth;
+        $(".list-img").css('height',h+'px');
+        // $(".modal-box").css('marginLeft',(w-240)/2+'px');
+    });
+
+
+
+
+</script>
+
+</body>
+</html>

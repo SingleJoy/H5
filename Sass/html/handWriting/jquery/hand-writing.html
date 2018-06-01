@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<title>HTML5 canvas支持触摸屏的签名</title>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jq-signature.js"></script>
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<style>
+		* { touch-action: none; }
+		body{
+			overflow: hidden;
+			scroll:none;
+		}
+		.hand-panel{
+            position: relative;
+			width: 100%;
+			height:100%;
+		}
+		.hand-write-title{
+			height: 20px;
+            left: 20px;
+			top:5px;
+		}
+
+		.js-signature{
+			margin:30px 20px 20px 20px;
+		}
+		.hand-operation{
+			position: absolute;
+			right:30px;
+			bottom: 30px;
+		}
+		.rewrite,.submit{
+            display: inline-block;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			font-size: 14px;
+			border-radius: 50%;
+			padding: 0;
+			border:0;
+			background-color:transparent;
+		}
+		.rewrite{
+			position: absolute;
+			border: 1px solid #349ce3;
+			color: #349ce3;
+			right:0;
+			bottom: 50px;
+		}
+		.submit{
+          background: #349ce3;
+			color: #fff;
+		}
+		.panel-tips{
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		}
+		.panel-tips p{
+			font-family: "Adobe 仿宋 Std R";
+			font-size:16px;
+
+		}
+		.sign-header p{
+			margin-top: -16px;
+			font-size: 16px;
+			line-height:20px;
+			text-align: center;
+			color: #666;
+			margin-left:auto;
+			margin-right: auto;
+		}
+		.sign-header a{
+			line-height: 20px;
+			color: #349ce3;
+			font-size: 14px;
+			display: inline-block;
+		}
+
+
+	</style>
+	<script>
+
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+            if (window.orientation === 180 || window.orientation === 0) {
+                $(".panel-show").hide();
+                alert('为保证手写面板签署正常，请务必将手机横屏显示！');
+            }
+            if (window.orientation === 90 || window.orientation === -90 ){
+
+                $(".hand-show").show();
+            }
+        }, false);
+	</script>
+
+</head>
+<body>
+<!--返回-->
+<div class="hand-write-title">
+
+	<div class="sign-header">
+		<a href="../signature-sign.html"><&nbsp;返回</a>
+		<p>请在签名面板内签名</p>
+	</div>
+</div>
+
+<div class="hand-panel panel-show">
+
+	<!--面板位置-->
+	<div class="js-signature"  data-auto-fit="true">
+		<div id="signature" style="width: 100%;height: 100%;"></div>
+	</div>
+
+</div>
+
+<div class="hand-operation  panel-show">
+	<button id="clearBtn" class="rewrite" onclick="clearCanvas();" >重写</button>&nbsp;
+	<button id="saveBtn" class="submit" onclick="saveSignature();" >提交</button>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+    $(document).on('ready', function() {
+        if ($('.js-signature').length) {
+            $('.js-signature').jqSignature();
+        }
+    });
+
+    function clearCanvas() {
+
+        $('.js-signature').eq(1).jqSignature('clearCanvas');
+        $('#saveBtn').attr('disabled', true);
+
+    }
+
+    function saveSignature() {
+        $('#signature').empty();
+        var canvas = document.getElementsByTagName("canvas")[0];
+        console.log(canvas);
+        var dataURL = canvas.toDataURL();
+        console.log(dataURL);
+
+    }
+
+    $('.js-signature').eq(1).on('jq.signature.changed', function() {
+        $('#saveBtn').attr('disabled', false);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<a type="button" id="down_button">
+    <button id="creat">点击复制图片</button>
+</a>
+<div class="myImg" style="position:relative;">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527780304291&di=488ee0e8cd7da88033ee268203583d90&imgtype=0&src=http%3A%2F%2Fa3.topitme.com%2F3%2Ffd%2Fa0%2F11280468511bba0fd3l.jpg">
+</div>
+
+<script>
+    $("#creat").click(function(){
+        html2canvas($("body"),{ // $(".myImg")是你要复制生成canvas的区域，可以自己选
+            onrendered:function(canvas){
+                dataURL =canvas.toDataURL("image/png");
+                $("body").append(canvas);
+                console.log(dataURL);
+
+                //下载图片
+                $('#down_button').attr( 'href' ,  dataURL ) ;
+                $('#down_button').attr( 'download' , 'myjobdeer.png' ) ;
+            },
+            width:320,
+            height:400
+        })
+    })
+</script>
+</body>
+</html>
